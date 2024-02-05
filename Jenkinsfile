@@ -3,8 +3,7 @@ pipeline {
 
      tools {
         maven 'MAVEN_HOME'
-        dockerTool name: 'dockerhome', // Specify the name of your Docker tool in Jenkins
-                  installationName: 'Default'
+        dockerTool name: 'dockerhome'
     }
 
     stages {
