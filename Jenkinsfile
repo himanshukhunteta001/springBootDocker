@@ -22,6 +22,13 @@ pipeline {
                 }
             }
         }
+        stage('Build Docker Image'){
+            steps {
+                script {
+                    bat 'docker build -t himanshu/spring-boot-docker .'
+                }
+            }
+        }
     }
 
     post {
