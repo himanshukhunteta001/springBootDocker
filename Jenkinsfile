@@ -1,8 +1,9 @@
 pipeline {
     agent any
 
-	 tools {
+    tools {
         maven 'MAVEN_HOME'
+        docker 'docker' // assuming 'docker' is the name of your Docker tool in Jenkins
     }
 
     stages {
@@ -18,17 +19,21 @@ pipeline {
             steps {
                 script {
                     bat 'mvn clean install'
-		            echo "Build Application"
+                    echo "Build Application"
                 }
             }
         }
-	    
-	 stage('Initialize'){
-        def dockerHome = tool 'docker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
+
+        stage('Initialize') {
+            steps {
+                script {
+                    def dockerHome = tool 'docker'
+                    env.PATH = "${dockerHome}/bin:${env.PATH}"
+                }
+            }
         }
-	    
-        stage('Build Docker Image'){
+
+        stage('Build Docker Image') {
             steps {
                 script {
                     bat 'docker build -t himanshu/spring-boot-docker .'
