@@ -3,11 +3,7 @@ pipeline {
 
      tools {
         maven 'MAVEN_HOME'
-        dockerTool 'dockerhome', 
-                  installationType: 'Installer',
-                  installer: [
-                      'latest'   // Use 'latest' or specify a specific version
-                  ]
+         dockerTool name: 'dockerhome', installationType: 'Installer', installer: 'latest'
     }
 
     stages {
