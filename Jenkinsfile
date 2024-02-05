@@ -3,7 +3,6 @@ pipeline {
 
      tools {
         maven 'MAVEN_HOME'
-         dockerTool 'dockerhome', installationType: 'Installer', installer: 'latest'
     }
 
     stages {
@@ -27,7 +26,7 @@ pipeline {
         stage('Initialize') {
             steps {
                 script {
-                    def dockerHome = tool 'dockerhome'
+                    def dockerHome = tool name: 'dockerhome', type: 'com.cloudbees.jenkins.plugins.docker_tools.DockerTool'
                     env.PATH = "${dockerHome}/bin:${env.PATH}"
                 }
             }
