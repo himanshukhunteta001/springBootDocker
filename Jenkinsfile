@@ -3,7 +3,8 @@ pipeline {
 
      tools {
         maven 'MAVEN_HOME'
-        dockerTool 'dockerhome'
+        dockerTool 'dockerhome',
+            installationName: 'Default'
     }
 
     stages {
