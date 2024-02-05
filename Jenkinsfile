@@ -1,9 +1,10 @@
 pipeline {
     agent any
 
-    tools {
+     tools {
         maven 'MAVEN_HOME'
-        docker 'docker_home' // assuming 'docker' is the name of your Docker tool in Jenkins
+        dockerTool name: 'docker_home', // Specify the name of your Docker tool in Jenkins
+                  installationName: 'Default'
     }
 
     stages {
