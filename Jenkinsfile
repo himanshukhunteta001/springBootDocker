@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         maven 'MAVEN_HOME'
-        docker 'docker' // assuming 'docker' is the name of your Docker tool in Jenkins
+        docker 'docker_home' // assuming 'docker' is the name of your Docker tool in Jenkins
     }
 
     stages {
@@ -27,7 +27,7 @@ pipeline {
         stage('Initialize') {
             steps {
                 script {
-                    def dockerHome = tool 'docker'
+                    def dockerHome = tool 'docker_home'
                     env.PATH = "${dockerHome}/bin:${env.PATH}"
                 }
             }
