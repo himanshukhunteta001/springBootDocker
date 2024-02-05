@@ -25,8 +25,7 @@ pipeline {
         stage('Build Docker Image'){
             steps {
                 script {
-                    def wslDockerCommand = """wsl -e docker build -t himanshu/spring-boot-docker ."""
-                    bat(wslDockerCommand)
+                    bat 'docker build -t himanshu/spring-boot-docker .'
                 }
             }
         }
