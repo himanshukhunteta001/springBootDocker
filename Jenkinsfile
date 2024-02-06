@@ -1,4 +1,9 @@
 pipeline {
+    environment {
+    imagename = "himanshu/spring-boot-docker"
+    registryCredential = 'Himanshu'
+    dockerImage = ''
+  }
     agent any
 
      tools {
