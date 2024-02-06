@@ -26,7 +26,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-pass'){
+                    withDockerRegistry(credentialsId: '0f22a66c-96a9-4149-af1f-601a25be1e76', toolName: 'Docker') {
 
                         sh 'docker build -t himanshukhunteta/spring-boot-docker:tag123 .'
                     }
