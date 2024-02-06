@@ -1,9 +1,4 @@
 pipeline {
-    environment {
-    imagename = "himanshu/spring-boot-docker"
-    registryCredential = 'Himanshu'
-    dockerImage = ''
-  }
     agent any
 
      tools {
@@ -31,7 +26,10 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    dockerImage = docker.build imagename
+                    withDockerRegistry(credentialsId: 'docker-pass'){
+
+                        sh 'docker build -t himanshukhunteta/spring-boot-docker:tag123 .'
+                    }
                 }
             }
         }
