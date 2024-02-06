@@ -26,7 +26,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t spring-boot-docker .'
+                    sh 'docker build -t himanshu/spring-boot-docker .'
                 }
             }
         }
