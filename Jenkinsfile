@@ -17,7 +17,7 @@ pipeline {
         stage('Build Maven Package') {
             steps {
                 script {
-                    bat 'mvn clean install'
+                    sh 'mvn clean install'
                     echo "Build Application"
                 }
             }
@@ -26,7 +26,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    bat 'docker build -t himanshu/spring-boot-docker .'
+                    sh 'docker build -t himanshu/spring-boot-docker .'
                 }
             }
         }
