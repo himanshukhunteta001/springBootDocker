@@ -23,14 +23,15 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage(' Docker Build') {
             steps {
+                // Build Docker image using the Dockerfile
                 script {
-                         def dockerImage = "spring-boot-docker"
-                        sh 'docker build -t ${dockerImage} .'
-                    }
+                    def dockerImage = "spring-boot-docker"
+                    sh "docker build -t ${dockerImage} ."
                 }
             }
+        }
         }
     }
 
